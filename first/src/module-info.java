@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author robot
+ *
+ */
+module first {
+}
