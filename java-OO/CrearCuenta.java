@@ -12,5 +12,13 @@ public class CrearCuenta {
         System.out.println(segundaCuenta.saldo);
         System.out.println(primeraCuenta.saldo);
         System.out.println(primeraCuenta.agencia);
+
+
+        System.out.println(primeraCuenta);
+        System.out.println(segundaCuenta);
+
+        if (primeraCuenta == segundaCuenta) {
+            System.out.println("Son los mismo objeto");
+        }
     }
 }
