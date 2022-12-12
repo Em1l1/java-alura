@@ -10,5 +10,20 @@ public class PruebaMetodos {
     miCuenta.retirar(100);
     System.out.println(miCuenta.saldo);
 
+    Cuenta cuentaDeJimena = new Cuenta();
+    cuentaDeJimena.depositar(1000);
+    System.out.println(cuentaDeJimena.saldo);
+
+    boolean puedeTransferir = cuentaDeJimena.transferir(400, miCuenta);
+
+    if (puedeTransferir) {
+      System.out.println("Transferencia exitosa");
+    } else {
+      System.out.println("No es posible");
+    }
+
+    System.out.println("Cuenta de Jimena: " + cuentaDeJimena.saldo);
+    System.out.println("Mi cuenta: " + miCuenta.saldo);
+
   }
 }
