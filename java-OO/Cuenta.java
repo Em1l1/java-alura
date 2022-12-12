@@ -4,7 +4,11 @@ class Cuenta {
     int numero;
     String titular;
 
-    void depositar(double valor) {
-      saldo = saldo + valor;
+    public void depositar(double valor) {
+      // saldo = saldo + valor;
+			// Esta cuenta 	Esta cuenta		
+			// This account 		This account
+			// This object
+			this.saldo = this.saldo + valor;
     }
 }
