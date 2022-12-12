@@ -3,7 +3,7 @@ public class CrearCuenta {
     public static void main(String[] args) {
         // Variable            = Valor
         Cuenta primeraCuenta = new Cuenta();
-        primeraCuenta.saldo = 1100;
+        primeraCuenta.saldo = 400;
 
         System.out.println(primeraCuenta.saldo);
 
