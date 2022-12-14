@@ -2,7 +2,7 @@ class Cuenta {
     double saldo;
     int agencia;
     int numero;
-		Cliente titular;
+		Cliente titular = new Cliente();
 
 		// No retorna valor
     public void depositar(double valor) {
