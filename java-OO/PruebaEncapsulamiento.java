@@ -9,8 +9,11 @@ public class PruebaEncapsulamiento {
 
     cuenta.setTitular(cliente);
 
+    Cliente titular = cuenta.getTitular();
+
     System.out.println(cliente.getNombre());
     System.out.println(cuenta.getTitular().getNombre());
+    System.out.println(titular);
   }
   
 }
