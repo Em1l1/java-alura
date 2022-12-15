@@ -4,6 +4,11 @@ public class PruebaConstructor {
     Cuenta cuenta = new Cuenta(3);
     cuenta.setAgencia(-4);
 
+    Cuenta cuenta2 = new Cuenta(333);
+    Cuenta cuenta3 = new Cuenta(666);
+
+
+
     System.out.println(cuenta.getAgencia());
   }
   

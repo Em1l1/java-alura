@@ -3,6 +3,8 @@ class Cuenta {
     private int agencia;
     private int numero;
 		private Cliente titular = new Cliente();
+		
+		private static int total = 0;
 
 		public Cuenta(int agencia) {
 			if (agencia <= 0) {
@@ -11,7 +13,8 @@ class Cuenta {
 			} else {
 				this.agencia = agencia;
 			}
-			System.out.println("Aqui se crea una nueva cuenta");
+			total++;
+			System.out.println("Se van creado: " + total + " cuentas");
 		}
 
 		// No retorna valor
