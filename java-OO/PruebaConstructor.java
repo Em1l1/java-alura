@@ -8,6 +8,8 @@ public class PruebaConstructor {
     Cuenta cuenta3 = new Cuenta(666);
 
 
+    System.out.println(Cuenta.getTotal());
+
 
     System.out.println(cuenta.getAgencia());
   }
