@@ -6,6 +6,11 @@ public class PruebaEncapsulamiento {
 
     cliente.setNombre("Diego");
     cliente.setDocumento("nulffadasdfl");
+
+    cuenta.setTitular(cliente);
+
+    System.out.println(cliente.getNombre());
+    System.out.println(cuenta.getTitular().getNombre());
   }
   
 }

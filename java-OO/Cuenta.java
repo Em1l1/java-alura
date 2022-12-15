@@ -52,4 +52,8 @@ class Cuenta {
 		public void setTitular(Cliente titular) {
 			this.titular = titular;
 		}
+
+		public Cliente getTitular() {
+			return titular;
+		}
 }
