@@ -9,4 +9,9 @@ public class Gerente extends Funcionario {
   public boolean iniciarSesion(String clave) {
     return clave == "AluraCursosOnLine";
   }
+
+  // sobre-escritura de metodo
+  public double getBonificacion() {
+    return super.getBonificacion() + super.getBonificacion();
+  }
 }
