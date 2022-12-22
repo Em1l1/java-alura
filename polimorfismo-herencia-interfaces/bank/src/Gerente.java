@@ -8,4 +8,9 @@ private String clave;
   public boolean iniciarSesion(String clave) {
     return clave == "AluraCurosOnLine";
   }
+
+  // Sobre-escritura de metodo
+  public double getBonificacion() {
+    return super.getSalario() + super.getBonificacion();
+  }
 }
