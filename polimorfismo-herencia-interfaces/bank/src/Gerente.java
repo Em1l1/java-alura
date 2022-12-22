@@ -11,6 +11,7 @@ private String clave;
 
   // Sobre-escritura de metodo
   public double getBonificacion() {
+    System.out.println("Ejecutando desde Gerente");
     return super.getSalario() + super.getBonificacion();
   }
 }
