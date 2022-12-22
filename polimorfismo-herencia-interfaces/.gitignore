@@ -1,8 +1,16 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java,windows,linux,macos,visualstudiocode,eclipse,intellij,vim,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,linux,macos,visualstudiocode,eclipse,intellij,vim,git
 
+.bank/src/.project
+.idea
+.metadata/
+codeStyleConfig.xml
+Project.xml
+.project
+*.xml
+
 ### Eclipse ###
-.metadata
+.metadata/
 bin/
 tmp/
 *.tmp
