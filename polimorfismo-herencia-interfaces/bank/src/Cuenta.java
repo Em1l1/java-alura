@@ -1,5 +1,6 @@
-public class Cuenta {
+public abstract class Cuenta {
 
+//  private double saldo;
   protected double saldo;
   private int agencia = 1;
   private int numero;
@@ -19,10 +20,6 @@ public class Cuenta {
     Cuenta.total ++;
   }
 
-  public void deposita(double valor) {
-    this.saldo = this.saldo + valor;
-  };
-
   public boolean saca(double valor) {
     if(this.saldo >= valor) {
       this.saldo -= valor;
@@ -31,6 +28,11 @@ public class Cuenta {
       return false;
     }
   }
+
+  public abstract void deposita(double valor);
+//    public void deposita(double valor) {
+//    this.saldo = this.saldo + valor;
+//  };
 
   public boolean transfiere(double valor, Cuenta destino) {
     if(this.saldo >= valor) {
