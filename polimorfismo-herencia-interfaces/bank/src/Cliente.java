@@ -1,7 +1,13 @@
-public class Cliente {
+public abstract class Cliente implements Autenticable {
   private String nombre;
   private String documento;
   private String telefono;
+
+  private AutenticableUtil util;
+
+  public Cliente() {
+    this.util = new AutenticacionUtil();
+  }
 
   public String getNombre() {
     return nombre;
@@ -25,5 +31,17 @@ public class Cliente {
 
   public void setTelefono(String telefono) {
     this.telefono = telefono;
+  }
+
+
+
+  @Override
+  public boolean iniciarSesion(String clave) {
+    return this.util.iniciarSesion(clave);
+  }
+
+  @Override
+  public void setClave(String clave) {
+    this.setClave(clave);
   }
 }
