@@ -2,17 +2,26 @@ public class Flujo {
 
   public static void main(String[] args) {
     System.out.println("Inicio main");
-    metodo1();
+    try {
+      metodo1();
+    } catch (MiException | ArithmeticException e) {
+      e.printStackTrace();
+    }
     System.out.println("Fin main");
   }
 
-  private static void metodo1() {
+  private static void metodo1() throws MiException {
     System.out.println("Inicio metodo1");
-    metodo2();
+    try {
+      metodo2();
+    } catch (MiException me) {
+     me.printStackTrace();
+    }
+//    metodo2();
     System.out.println("Fin metodo1");
   }
 
-  private static void metodo2() {
+  private static void metodo2() throws MiException {
 
     System.out.println("Inicio metodo2");
 //    for (int i = 1; i <= 5; i++) {
@@ -33,8 +42,20 @@ public class Flujo {
 //      }
 //    }
 //    ArithmeticException ae = new ArithmeticException();
-    throw new ArithmeticException();
+//    throw new ArithmeticException();
 //    System.out.println("Fin metodo2");
+
+
+//      throw new MiException("Mi excepcion fue lanzada!");
+
+//    StackOverflowError
+//    metodo2()
+    Cuenta cuenta = new Cuenta();
+    int a = 50 / 0;
+    cuenta c = null;
+    c.deposita();
+
+    throw new MiException("Mi excepcion fue lanzada");
   }
 
 }
