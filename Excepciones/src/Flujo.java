@@ -50,10 +50,10 @@ public class Flujo {
 
 //    StackOverflowError
 //    metodo2()
-    Cuenta cuenta = new Cuenta();
-    int a = 50 / 0;
-    cuenta c = null;
-    c.deposita();
+//    Cuenta cuenta = new Cuenta();
+//    int a = 50 / 0;
+//    cuenta c = null;
+//    c.deposita();
 
     throw new MiException("Mi excepcion fue lanzada");
   }
