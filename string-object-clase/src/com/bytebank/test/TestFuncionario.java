@@ -1,6 +1,9 @@
 package com.bytebank.test;
 
-public class TestFuncionario {
+import com.bytebank.modelo.*;
+
+public class TestFuncionario
+{
 
 	public static void main(String[] args) {
 		Funcionario diego = new Contador();

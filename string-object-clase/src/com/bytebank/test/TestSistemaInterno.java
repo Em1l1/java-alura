@@ -1,6 +1,8 @@
 package com.bytebank.test;
+import com.bytebank.modelo.*;
 
 public class TestSistemaInterno {
+
 
 	public static void main(String[] args) {
 		SistemaInterno sistema = new SistemaInterno();
