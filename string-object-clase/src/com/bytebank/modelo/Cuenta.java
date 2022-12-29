@@ -9,9 +9,21 @@ public abstract class Cuenta {
 
     private static int total;
 
+    /*
+     *
+     * Instancia una nueva cuenta sin parametros
+     */
+
     public Cuenta() {
 
     }
+
+    /*
+     * Instancia una cuenta usando agencia y numero
+     * @params agencia
+     * @param numero
+     */
+
 
     public Cuenta( int agencia, int numero) {
         this.agencia = agencia;
@@ -23,6 +35,12 @@ public abstract class Cuenta {
 
     public abstract void deposita(double valor);
 
+    /*
+     * Este metodo retira dinera de la cuenta y si ocurre un error
+     * devuelve una excepcion.
+     * @param valor
+     * @param SaldoInduficineteException
+     */
     public boolean saca(double valor) {
         if(this.saldo >= valor) {
             this.saldo -= valor;

@@ -1,6 +1,12 @@
 package com.bytebank.test;
 
 import com.bytebank.modelo.*;
+/*
+ * Cuenta va a crear nuevas intancias de CuentaCorriente
+ * @version 1.0
+ * @
+ * @author victor
+ */
 public class TestCuenta {
 
 	// Modificadores de Acceso
