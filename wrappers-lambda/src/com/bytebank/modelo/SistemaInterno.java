@@ -1,6 +1,6 @@
 package com.bytebank.modelo;
 
-public class SistemaInterno {
+public class SistemaInterno extends com.bytebank.modelo.Autenticable {
 	
 	private String clave = "AluraCursosOnLine";
 	
@@ -12,6 +12,7 @@ public class SistemaInterno {
 		} else {
 			System.out.println("Error en login");
 			return false;
+		}
 		}
 	}
 
