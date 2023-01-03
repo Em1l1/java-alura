@@ -9,16 +9,16 @@ public class TestArregloReferencias {
 
     public static void main(String[] args) {
 
-
+    	//                          [ new |cc |null  |null  |null  ]
     	Object[] referencias = new Object[5];
 
-        //                          [ new |cc |null  |null  |null  ]
         CuentaCorriente cc = new CuentaCorriente(23, 44);
         referencias[1] = cc;
         
         Cliente cliente = new Cliente();
         referencias[4] = cliente;
         
+        // ?Cast Objeto
         Cliente obtenido = (Cliente) referencias[4];
         System.out.println(obtenido);
 
