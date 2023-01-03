@@ -24,5 +24,9 @@ public class GuardaReferencias {
 	public Object obtener(int indice) {
 		return referencia[indice];
 	}
+//	
+//	public int getCantidadDeElementos() {
+//        return this.referencia;
+//    }
 
 }
