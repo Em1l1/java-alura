@@ -120,6 +120,7 @@ public abstract class Cuenta {
 
 	@Override
 	public boolean equals(Object obj) {
+		// comparando por valores
 		Cuenta cuenta = (Cuenta) obj;
 		return this.agencia == cuenta.getAgencia() && this.numero == cuenta.getNumero();
 	}

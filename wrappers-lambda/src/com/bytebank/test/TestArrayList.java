@@ -1,6 +1,7 @@
 package com.bytebank.test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.bytebank.modelo.Cuenta;
 import com.bytebank.modelo.CuentaCorriente;
@@ -12,7 +13,15 @@ public class TestArrayList {
 		/**
 		 * @<> Forzar a que acepte solo un tipo de objeto
 		 */
-		ArrayList<Cuenta> list = new ArrayList<>();
+//		List<Cliente> listaClientes = new LinkedList<>();
+
+//		ArrayList<Cuenta> list = new ArrayList<>();
+
+		// Obligatorio especificar
+//		List<Cuenta> list = new Vector<Cuenta>();
+
+		List<Cuenta> list = new ArrayList<Cuenta>();
+		// referencia Objeto -> HEAP
 		Cuenta cc = new CuentaCorriente(33, 55);
 		Cuenta cc2 = new CuentaCorriente(99, 88);
 		Cuenta cc3 = new CuentaCorriente(11, 22);
