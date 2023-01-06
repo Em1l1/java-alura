@@ -15,10 +15,16 @@ public class TestArrayList {
 		ArrayList<Cuenta> list = new ArrayList<>();
 		Cuenta cc = new CuentaCorriente(33, 55);
 		Cuenta cc2 = new CuentaCorriente(99, 88);
+		Cuenta cc3 = new CuentaCorriente(11, 22);
 		
+		// [ cc, cc2 ]
+
 		list.add(cc);
 		list.add(cc2);
 		
+//		Cliente cliente = new Cliente();
+//		lista.add(cliente);
+
 		Cuenta obtenerCuenta = list.get(0);
 		System.out.println(obtenerCuenta);
 		
@@ -32,6 +38,11 @@ public class TestArrayList {
 		// Por cada cuenta : lista
 		for (Cuenta cuenta : list) {
 			System.out.println(cuenta);
+		}
+
+		boolean contiene = list.contains(cc3);
+		if (contiene) {
+			System.out.println("Si");
 		}
 	}
 }
