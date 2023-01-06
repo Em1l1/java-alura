@@ -21,6 +21,7 @@ public class TestArrayList {
 
 		list.add(cc);
 		list.add(cc2);
+		list.add(cc3);
 		
 //		Cliente cliente = new Cliente();
 //		lista.add(cliente);
@@ -41,8 +42,14 @@ public class TestArrayList {
 		}
 
 		boolean contiene = list.contains(cc3);
+		// comparacion de referencia
 		if (contiene) {
-			System.out.println("Si");
+			System.out.println("Si, es igual (equals)");
 		}
+
+		// comparacion por valores
+//		if (cc.equals(cc3)) {
+//			System.out.println("Si, son iguales");
+//		}
 	}
 }
