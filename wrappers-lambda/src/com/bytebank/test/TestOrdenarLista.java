@@ -1,6 +1,7 @@
 package com.bytebank.test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -62,16 +63,49 @@ public class TestOrdenarLista {
 		// Ordenar las Cuentas
 		// TODO ualquier clase hija de Cuenta
 		// @ Comparator <? extend Cuenta> c
-		Comparator<Cuenta> comparator = new OrdenadorPorNumeroCuenta();
-		lista.sort(comparator);
+		// Comparator<Cuenta> comparator = new OrdenadorPorNumeroCuenta();
+//		lista.sort(new OrdenadorPorNumeroCuenta());
+		lista.sort(new Comparator<Cuenta>() {
+			@Override
+			public int compare(Cuenta o1, Cuenta o2) {
+				return Integer.compare(o1.getNumero(), o2.getNumero());
+			}
+		});
 
 		System.out.println("Despues de ordenar");
 		for (Cuenta cuenta : lista) {
 			System.out.println(cuenta);
 		}
 
-		Comparator<Cuenta> comparatorNombreTitular = new OrdenadorPorNombreTitular();
+//		Comparator<Cuenta> comparatorNombreTitular = new OrdenadorPorNombreTitular();
+//		System.out.println("Despues de ordenar por nombre titular");
+//		for (Cuenta cuenta : lista) {
+//			System.out.println(cuenta);
+//		}
+
+		/**
+		 * ?Java 7, 6,
+		 * 
+		 * @Forma antigua
+		 */
+//		Collections.sort(lista, new OrdenadorPorNumeroCuenta());
+
+		// Clase anonima
+		Collections.sort(lista, new Comparator<Cuenta>() {
+			@Override
+			public int compare(Cuenta o1, Cuenta o2) {
+				// TODO Auto-generated method stub
+				return o2.getTitular().getNombre().compareTo(o2.getTitular().getNombre());
+			}
+		});
+
 		System.out.println("Despues de ordenar por nombre titular");
+		for (Cuenta cuenta : lista) {
+			System.out.println(cuenta);
+		}
+
+		Collections.sort(lista);
+		System.out.println("Despues de ordenar por orden natural");
 		for (Cuenta cuenta : lista) {
 			System.out.println(cuenta);
 		}
@@ -80,10 +114,10 @@ public class TestOrdenarLista {
 
 }
 
-class OrdenadorPorNumeroCuenta implements Comparator<Cuenta> {
-
-	@Override
-	public int compare(Cuenta o1, Cuenta o2) {
+//class OrdenadorPorNumeroCuenta implements Comparator<Cuenta> {
+//
+//	@Override
+//	public int compare(Cuenta o1, Cuenta o2) {
 		// TODO Auto-generated method stub
 		// Forma basico
 //		if (o1.getNumero() == o2.getNumero()) {
@@ -97,16 +131,16 @@ class OrdenadorPorNumeroCuenta implements Comparator<Cuenta> {
 //		return o1.getNumero() - o2.getNumero()
 
 		// Forma Wrapper
-		return Integer.compare(o1.getNumero(), o2.getNumero());
-	}
-
-}
-
-class OrdenadorPorNombreTitular implements Comparator<Cuenta> {
-
-	@Override
-	public int compare(Cuenta o1, Cuenta o2) {
-		return o1.getTitular().getNombre().compareTo(o2.getTitular().getNombre());
-	}
-
-}
+//		return Integer.compare(o1.getNumero(), o2.getNumero());
+//	}
+//
+//}
+//
+//class OrdenadorPorNombreTitular implements Comparator<Cuenta> {
+//
+//	@Override
+//	public int compare(Cuenta o1, Cuenta o2) {
+//		return o1.getTitular().getNombre().compareTo(o2.getTitular().getNombre());
+//	}
+//
+//}

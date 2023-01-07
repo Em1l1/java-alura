@@ -4,10 +4,10 @@ package com.bytebank.modelo;
  * Cuenta va a crear nuevas instancias de CuentaCorriente
  * 
  * @version 1.0
- * @author diegorojas
+ * @author victor
  *
  */
-public abstract class Cuenta {
+public abstract class Cuenta implements Comparable<Cuenta> {
 	
 	// public      // Accesible desde cualquier parte
 	// --default   // Accesible dentro del paquete
@@ -124,5 +124,14 @@ public abstract class Cuenta {
 		// comparando por valores
 		Cuenta cuenta = (Cuenta) obj;
 		return this.agencia == cuenta.getAgencia() && this.numero == cuenta.getNumero();
+	}
+
+	@Override
+	public int compareTo(Cuenta o) {
+		// TODO Auto-generated method stub
+		// @ Orden natural: Numero Agencia
+//		return Integer.compare(this.agencia, o.getAgencia());
+		// Orden natural: saldo
+		return Double.compare(this.getSaldo(), o.getSaldo());
 	}
 }
