@@ -2,6 +2,13 @@ wrappers-lambda/src/.metadata/
 doc/
 out/
 src/.classpath
+Excepciones/
+Excepciones/.idea
+collection/.idea
+string-object-clase
+wrappers-lambda/.idea
+
+
 
 .idea/codeStyles/
 # Compiled class file
@@ -122,3 +129,12 @@ wrappers-lambda/src/.classpath
 hs_err_pid*
 replay_pid*
 collection/collection.iml
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.gitignore

@@ -35,7 +35,10 @@ public class Clase3 {
         cursos.sort(Comparator.naturalOrder());
         System.out.println(cursos);
 
-        List<String> cursosList = cursos.stream().sorted().collect(Collections.toList());
-        System.out.println(cursosList);
+//        List<String> cursosList = cursos.stream().sorted().collect(Collections.toList());
+//        System.out.println(cursosList);
+
+//        List<String> cursosList = cursos.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+//        System.out.println(cursosList);
     }
 }
