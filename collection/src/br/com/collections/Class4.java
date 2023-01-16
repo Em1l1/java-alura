@@ -1,5 +1,7 @@
 package br.com.collections;
 
+import br.com.collections.model.Curso;
+
 import java.util.ArrayList;
 
 public class Class4 {

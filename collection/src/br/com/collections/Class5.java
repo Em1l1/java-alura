@@ -1,6 +1,10 @@
 package br.com.collections;
+import br.com.collections.model.Curso;
+
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
+import java.util.stream.Collectors;
+import java.util.List;
 
 public class Class5 {
     public static void main(String[] args) {
@@ -17,7 +21,12 @@ public class Class5 {
 
     System.out.println(cursos);
 
-    Collections.sort(cursos, Collections.reverseOrder());
+//    Collections.sort(cursos, Collections.reverseOrder());
+    cursos.sort(Comparator.comparing(Curso::getNombre));
+//    Collections.sort(cursos.Comparator.comparing(Curso::getNombre).reversed);
     System.out.println(cursos);
+
+    List<Curso> cursoList = cursos.stream().filter(curso -> !curso.getNombre().equalsIgnoreCase("Ruby")).sorted(Comparator.comparingInt(Curso::getTiempo)).collect(Collectors.toList());
+    System.out.println(cursoList);
   }
 }
