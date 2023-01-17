@@ -47,5 +47,7 @@ public class Class13 {
         listaAlumnos.forEach(alumno -> {
             System.out.println(alumno);
         });
+
+        System.out.println(listaAlumnos.stream().filter(alumno -> alumno.equalsIgnoreCase("Gustavo Polar")).findFirst().orElse("No Existe"));
     }
 }
