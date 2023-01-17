@@ -1,17 +1,17 @@
 package br.com.collections.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Collection;
+import java.util.*;
 
 public class Curso {
 //        implements Comparable<Curso> {
   private String nombre;
   private int tiempo;
   private List<Aula> aulaList = new ArrayList<>();
+//  private Collection<Alumno> alumnos = new LinkedHashSet<>();
   private Collection<Alumno> alumnos = new HashSet<>();
+  private Map<String, Alumno> alumnoMap = new HashMap<>();
+//  private Map<String, Alumno> alumnoMap = new LinkedHashMap<>();
+
 
   public Curso(String nombre, int tiempo) {
     this.nombre = nombre;
@@ -49,7 +49,7 @@ public class Curso {
     this.aulaList.add(aula);
   }
 
-  public void addAlumno(Alumno alumno) { this.alumnos.add(alumno); }
+  public void addAlumno(Alumno alumno) { this.alumnos.add(alumno);  this.alumnoMap.put(alumno.getCodigo(), alumno); }
 
   public boolean verificaAlumno(Alumno alumno) { return this.alumnos.contains(alumno); }
 
@@ -59,6 +59,10 @@ public class Curso {
 
   public Collection<Alumno> getAlumnos() {
     return alumnos;
+  }
+
+  public Map<String, Alumno> getAlumnoMap() {
+    return alumnoMap;
   }
 
   @Override
