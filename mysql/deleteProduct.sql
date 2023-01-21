@@ -1,0 +1,1 @@
+DELETE FROM tbproductos where producto = '773912';
