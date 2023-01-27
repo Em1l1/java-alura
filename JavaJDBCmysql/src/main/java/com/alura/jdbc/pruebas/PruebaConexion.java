@@ -1,4 +1,4 @@
-package com.alura.jdbc;
+package com.alura.jdbc.pruebas;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,9 +12,8 @@ public class PruebaConexion {
                 "root",
                 "12345");
 
-        System.out.println("Cerrando la conexion");
+        System.out.println("Cerrando la conexión");
 
         con.close();
     }
-
 }
