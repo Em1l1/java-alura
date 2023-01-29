@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.alura.jdbc.factory.ConnectionFactory;
 
 public class ProductoController {
 
@@ -17,12 +18,8 @@ public class ProductoController {
 	}
 
 	public List<Map<String, String>> listar() throws SQLException {
-		// TODO Connecion dataBase
-		String password = "12345";
-		Connection con = DriverManager.getConnection(
-						"jdbc:mysql://localhost/control_de_stock?useTimeZone=true&serverTimeZone=UTC",
-						"root",
-						password);
+		Connection con = new ConnectionFactory().recuperaConexion();
+
 		// statement
 		Statement statement = con.createStatement();
 		statement.execute("SELECT ID, NOMBRE, DESCRIPCION, CANTIDAD FROM PRODUCTO");
@@ -45,8 +42,23 @@ public class ProductoController {
 		return resultado;
 	}
 
-    public void guardar(Object producto) {
+    public void guardar(Map<String, String> producto) throws SQLException {
 		// TODO
-	}
+            Connection con = new ConnectionFactory().recuperaConexion();
+            Statement statement = con.createStatement();
+            
+            statement.execute("INSERT INTO PRODUCTO(nombre, descripcion, cantidad)"
+                                + " VALUE('" + producto.get("NOMBRE") + "', '"
+                                + producto.get("DESCRIPCION") + "', "
+                                + producto.get("CANTIDAD") + ")", statement.RETURN_GENERATED_KEYS);
+            
+            ResultSet resultSet = statement.getGeneratedKeys();
+            
+            while (resultSet.next()) {
+                System.out.println(String.format("Fue insertado el producto de Id %d", resultSet.getInt(1)));
+            }
+            
 
+	}
+ 
 }

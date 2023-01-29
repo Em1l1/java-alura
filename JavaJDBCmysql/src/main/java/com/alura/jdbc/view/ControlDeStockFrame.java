@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.alura.jdbc.controller.CategoriaController;
 import com.alura.jdbc.controller.ProductoController;
+import java.util.HashMap;
 
 public class ControlDeStockFrame extends JFrame {
 
@@ -241,10 +242,18 @@ public class ControlDeStockFrame extends JFrame {
         }
 
         // TODO
-        var producto = new Object[] { textoNombre.getText(), textoDescripcion.getText(), cantidadInt };
+        var producto = new HashMap<String, String>();
+        producto.put("NOMBRE", textoNombre.getText());
+        producto.put("DESCRIPCION", textoDescripcion.getText());
+        producto.put("CANTIDAD", String.valueOf(cantidadInt));
+        
         var categoria = comboCategoria.getSelectedItem();
 
-        this.productoController.guardar(producto);
+        try {
+            this.productoController.guardar(producto);            
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         JOptionPane.showMessageDialog(this, "Registrado con éxito!");
 
