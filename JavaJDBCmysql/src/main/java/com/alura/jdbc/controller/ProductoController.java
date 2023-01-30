@@ -9,8 +9,23 @@ import com.alura.jdbc.factory.ConnectionFactory;
 
 public class ProductoController {
 
-	public void modificar(String nombre, String descripcion, Integer id) {
+	public int modificar(String nombre, String descripcion, Integer cantidad, Integer id) throws SQLException {
 		// TODO
+		ConnectionFactory factory = new ConnectionFactory();
+		Connection con = new ConnectionFactory().recuperaConexion();
+
+		Statement statement = con.createStatement();
+		statement.execute("UPDATE PRODUCTO SET "
+						+ " NOMBRE = '" + nombre + "'"
+						+ ", DESCRIPCION = '" + descripcion + "'"
+						+ ", CANTIDAD = " + cantidad
+						+ "WHERE ID = " + id);
+
+		int updateCount = statement.getUpdateCount();
+
+		con.close();
+
+		return updateCount;
 	}
 
 	public int eliminar(Integer id) throws SQLException{
