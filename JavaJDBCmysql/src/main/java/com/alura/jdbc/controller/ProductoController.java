@@ -12,14 +12,15 @@ public class ProductoController {
 	public int modificar(String nombre, String descripcion, Integer cantidad, Integer id) throws SQLException {
 		// TODO
 		ConnectionFactory factory = new ConnectionFactory();
-		Connection con = new ConnectionFactory().recuperaConexion();
+		Connection con = factory.recuperaConexion();
 
 		Statement statement = con.createStatement();
+
 		statement.execute("UPDATE PRODUCTO SET "
 						+ " NOMBRE = '" + nombre + "'"
 						+ ", DESCRIPCION = '" + descripcion + "'"
 						+ ", CANTIDAD = " + cantidad
-						+ "WHERE ID = " + id);
+						+ " WHERE ID = " + id);
 
 		int updateCount = statement.getUpdateCount();
 
