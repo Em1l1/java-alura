@@ -135,27 +135,41 @@ public class ProductoController {
 
     public void guardar(Map<String, String> producto) throws SQLException {
 		// TODO
+			String nombre = producto.get("NOMBRE");
+			String descripcion = producto.get("DESCRIPCION");
+			Integer cantidad = Integer.valueOf(producto.get("CANTIDAD"));
+			Integer maximoCantidad = 50;
+
 			ConnectionFactory factory = new ConnectionFactory();
 //			Connection con = new ConnectionFactory().recuperaConexion();
 			Connection con = factory.recuperaConexion();
+			con.setAutoCommit(false);
 
 			PreparedStatement statement = con.prepareStatement("INSERT INTO PRODUCTO "
 																+ "(nombre, descripcion, cantidad)"
                                 + " VALUE(?, ?, ?)",
 																Statement.RETURN_GENERATED_KEYS);
-			statement.setString(1, producto.get("NOMBRE"));
-			statement.setString(2, producto.get("DESCRIPCION"));
-			statement.setInt(3, Integer.valueOf(producto.get("CANTIDAD")));
+			do {
+				int cantidadParaGuardar = Math.min(cantidad, maximoCantidad);
+				ejecutarRegistro(nombre, descripcion, cantidadParaGuardar, statement);
+				cantidad -= maximoCantidad;
+			} while (cantidad > 0);
+			con.close();
+		}
 
-			statement.execute();
-            
-			ResultSet resultSet = statement.getGeneratedKeys();
-            
-			while (resultSet.next()) {
-					System.out.println(String.format("Fue insertado el producto de Id %d", resultSet.getInt(1)));
-			}
-            
+	private static void ejecutarRegistro(String nombre, String descripcion, Integer cantidad, PreparedStatement statement) throws SQLException {
 
+		statement.setString(1, nombre);
+		statement.setString(2, descripcion);
+		statement.setInt(3, cantidad);
+
+		statement.execute();
+
+		ResultSet resultSet = statement.getGeneratedKeys();
+
+		while (resultSet.next()) {
+				System.out.println(String.format("Fue insertado el producto de Id %d", resultSet.getInt(1)));
+		}
 	}
- 
+
 }
