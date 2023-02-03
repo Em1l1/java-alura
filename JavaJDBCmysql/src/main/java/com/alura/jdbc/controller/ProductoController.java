@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.alura.jdbc.factory.ConnectionFactory;
+import com.alura.jdbc.modelo.Producto;
 
 public class ProductoController {
 
@@ -138,11 +139,11 @@ public class ProductoController {
 	}
 
 
-    public void guardar(Map<String, String> producto) throws SQLException {
+    public void guardar(Producto producto) throws SQLException {
 		// TODO
-			String nombre = producto.get("NOMBRE");
-			String descripcion = producto.get("DESCRIPCION");
-			Integer cantidad = Integer.valueOf(producto.get("CANTIDAD"));
+			String nombre = producto.getNombre();
+			String descripcion = producto.getDescripcion();
+			Integer cantidad = Integer.valueOf(producto.getCantidad();
 			Integer maximoCantidad = 50;
 
 			ConnectionFactory factory = new ConnectionFactory();
