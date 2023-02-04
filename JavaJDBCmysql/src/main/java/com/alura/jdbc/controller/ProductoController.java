@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import com.alura.jdbc.factory.ConnectionFactory;
 import com.alura.jdbc.modelo.Producto;
+import com.alura.jdbc.dao.ProductoDAO;
 
 public class ProductoController {
 
@@ -139,53 +140,10 @@ public class ProductoController {
 	}
 
 
-    public void guardar(Producto producto) throws SQLException {
-		// TODO
-			String nombre = producto.getNombre();
-			String descripcion = producto.getDescripcion();
-			Integer cantidad = producto.getCantidad();
+	public void guardar(Producto producto) throws SQLException {
+		ProductoDAO productoDAO = new ProductoDAO(new ConnectionFactory().recuperaConexion());
 
-			ConnectionFactory factory = new ConnectionFactory();
-//			Connection con = new ConnectionFactory().recuperaConexion();
-			final Connection con = factory.recuperaConexion();
-			try(con) {
-				con.setAutoCommit(false);
-
-				final PreparedStatement statement = con.prepareStatement("INSERT INTO PRODUCTO "
-												+ "(nombre, descripcion, cantidad)"
-												+ " VALUE(?, ?, ?)",
-
-								Statement.RETURN_GENERATED_KEYS);
-				try(statement) {
-					ejecutarRegistro(producto, statement);
-					con.commit();
-					System.out.println("Commit");
-				} catch (Exception e) {
-					con.rollback();
-					System.out.println("Rollback");
-				}
-			}
-		}
-
-	private static void ejecutarRegistro(Producto producto, PreparedStatement statement) throws SQLException {
-
-//		if (cantidad < 50) {
-//			throw new RuntimeException("Ocurrio un error");
-//		}
-		statement.setString(1, producto.getNombre());
-		statement.setString(2, producto.getDescripcion());
-		statement.setInt(3, producto.getCantidad());
-
-		statement.execute();
-
-		final ResultSet resultSet = statement.getGeneratedKeys();
-//		try(ResultSet resultSet = statement.getGeneratedKeys()) {
-		try(resultSet) {
-			while (resultSet.next()) {
-				producto.setId(resultSet.getInt(1));
-				System.out.println(String.format("Fue insertado el producto %s", producto));
-			}
-		}
+		productoDAO.guardar(producto);
 	}
 
 }
