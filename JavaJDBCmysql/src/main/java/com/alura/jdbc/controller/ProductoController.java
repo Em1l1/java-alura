@@ -143,8 +143,7 @@ public class ProductoController {
 		// TODO
 			String nombre = producto.getNombre();
 			String descripcion = producto.getDescripcion();
-			Integer cantidad = Integer.valueOf(producto.getCantidad();
-			Integer maximoCantidad = 50;
+			Integer cantidad = producto.getCantidad();
 
 			ConnectionFactory factory = new ConnectionFactory();
 //			Connection con = new ConnectionFactory().recuperaConexion();
@@ -158,12 +157,7 @@ public class ProductoController {
 
 								Statement.RETURN_GENERATED_KEYS);
 				try(statement) {
-					do {
-						int cantidadParaGuardar = Math.min(cantidad, maximoCantidad);
-						ejecutarRegistro(nombre, descripcion, cantidadParaGuardar, statement);
-						cantidad -= maximoCantidad;
-					} while (cantidad > 0);
-
+					ejecutarRegistro(producto, statement);
 					con.commit();
 					System.out.println("Commit");
 				} catch (Exception e) {
@@ -173,14 +167,14 @@ public class ProductoController {
 			}
 		}
 
-	private static void ejecutarRegistro(String nombre, String descripcion, Integer cantidad, PreparedStatement statement) throws SQLException {
+	private static void ejecutarRegistro(Producto producto, PreparedStatement statement) throws SQLException {
 
-		if (cantidad < 50) {
-			throw new RuntimeException("Ocurrio un error");
-		}
-		statement.setString(1, nombre);
-		statement.setString(2, descripcion);
-		statement.setInt(3, cantidad);
+//		if (cantidad < 50) {
+//			throw new RuntimeException("Ocurrio un error");
+//		}
+		statement.setString(1, producto.getNombre());
+		statement.setString(2, producto.getDescripcion());
+		statement.setInt(3, producto.getCantidad());
 
 		statement.execute();
 
@@ -188,7 +182,8 @@ public class ProductoController {
 //		try(ResultSet resultSet = statement.getGeneratedKeys()) {
 		try(resultSet) {
 			while (resultSet.next()) {
-				System.out.println(String.format("Fue insertado el producto de Id %d", resultSet.getInt(1)));
+				producto.setId(resultSet.getInt(1));
+				System.out.println(String.format("Fue insertado el producto %s", producto));
 			}
 		}
 	}

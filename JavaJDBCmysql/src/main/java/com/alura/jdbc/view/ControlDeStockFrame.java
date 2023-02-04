@@ -260,14 +260,10 @@ public class ControlDeStockFrame extends JFrame {
         }
 
         // TODO
-//        var producto = new HashMap<String, String>();
         var producto = new Producto(textoNombre.getText(),
                 textoDescripcion.getText(),
                 cantidadInt);
-//        producto.put("NOMBRE", textoNombre.getText());
-//        producto.put("DESCRIPCION", textoDescripcion.getText());
-//        producto.put("CANTIDAD", String.valueOf(cantidadInt));
-        
+
         var categoria = comboCategoria.getSelectedItem();
 
         try {
