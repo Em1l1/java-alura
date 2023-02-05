@@ -29,9 +29,11 @@ public class ConnectionFactory {
   }
 
   public Connection recuperaConexion() throws SQLException {
-    // TODO Connecion dataBase
-//    String password = "12345";
-//    return DriverManager.getConnection("jdbc:mysql://localhost/control_de_stock?useTimeZone=true&serverTimeZone=UTC", "root", password);
+    try {
       return this.datasource.getConnection();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+    }
+
    }
 }
