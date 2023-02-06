@@ -16,7 +16,7 @@ import java.sql.SQLException;
  * @author robot
  */
 public class ConnectionFactory {
-  private DataSource datasource;
+  private DataSource dataSource;
   // ?pool de conexiones
   public ConnectionFactory() {
     var pooledDataSource = new ComboPooledDataSource();
@@ -25,15 +25,14 @@ public class ConnectionFactory {
     pooledDataSource.setPassword("12345");
     pooledDataSource.setMaxPoolSize(10);
 
-    this.datasource = pooledDataSource;
+    this.dataSource = pooledDataSource;
   }
 
-  public Connection recuperaConexion() throws SQLException {
+  public Connection recuperaConexion() {
     try {
-      return this.datasource.getConnection();
+      return this.dataSource.getConnection();
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }
-
-   }
+  }
 }
