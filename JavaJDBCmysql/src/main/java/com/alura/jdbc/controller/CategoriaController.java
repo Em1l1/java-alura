@@ -22,7 +22,7 @@ public class CategoriaController {
 
     public List<Categoria> cargaReporte() {
         // TODO
-        return this.listar();
+        return this.categoriaDAO.listarConProductos();
     }
 
 }
