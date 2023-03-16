@@ -1,1 +1,1 @@
-CREATE DATABASE ventas_jugos2;
+CREATE DATABASE ventas_jugos;
