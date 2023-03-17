@@ -12,3 +12,11 @@ SELECT * FROM tabla_de_productos ORDER BY ENVASE, NOMBRE_DEL_PRODUCTO;
 
 SELECT * FROM tabla_de_productos ORDER BY ENVASE DESC, NOMBRE_DEL_PRODUCTO DESC;
 
+-- Mayores Ventas
+SELECT * FROM tabla_de_productos ORDER BY SABOR = 'Frutilla' OR 'Limon';
+
+SELECT CODIGO_DEL_PRODUCTO FROM tabla_de_productos 
+WHERE NOMBRE_DEL_PRODUCTO = "Refrescante" AND TAMANO = "1 Litro" 
+AND SABOR = "Frutilla/Limón"; 
+
+SELECT * FROM items_facturas WHERE CODIGO_DEL_PRODUCTO = "1101035" ORDER BY CANTIDAD DESC;
