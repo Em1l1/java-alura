@@ -1,6 +1,8 @@
 USE ventas_jugos;
 
-ALTER TABLE tb_venta RENAME tb_factura;
+ALTER TABLE tb_venta RENAME tb_facturas;
+
+ALTER TABLE tb_facturas RENAME tb_factura;
 
 ALTER TABLE facturas RENAME tb_factura;
 

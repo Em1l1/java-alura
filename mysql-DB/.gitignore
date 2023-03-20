@@ -1,5 +1,9 @@
+schema_ventaJugos.mwb.bak
 .vscode/
 .vscode/settings.json
 
 ../.vscode/
 ../.vscode/settings.json
+
+jugos.sessions.sql
+root.sessions.sql
