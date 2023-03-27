@@ -1,0 +1,37 @@
+-- Active: 1678972949371@@127.0.0.1@3306@jugos_ventas
+USE jugos_ventas;
+
+SELECT ENVASE, MAX(PRECIO_DE_LISTA)
+AS PRECIO_MAXIMO FROM tabla_de_productos GROUP BY ENVASE;
+
+SELECT X.ENVASE, X.PRECIO_MAXIMO FROM ;
+
+USE jugos_ventas;
+
+
+-- create view
+CREATE VIEW `vw_envases_grandes` AS
+SELECT ENVASE, MAX(PRECIO_DE_LISTA)
+AS PRECIO_MAXIMO FROM tabla_de_productos GROUP BY ENVASE;
+
+-- view
+SELECT X.ENVASE, X. PRECIO_MAXIMO FROM
+vw_envases_grandes X
+WHERE PRECIO_MAXIMO >= 10;
+
+--view
+SELECT A.NOMBRE_DEL_PRODUCTO, A.ENVASE, A.PRECIO_DE_LISTA, 
+B.PRECIO_MAXIMO FROM tabla_de_productos A
+INNER JOIN
+vw_envases_grandes B
+ON A.ENVASE = B.ENVASE;
+
+-- precio maximo
+
+SELECT A.NOMBRE_DEL_PRODUCTO, A.ENVASE, A.PRECIO_DE_LISTA, 
+((A.PRECIO_DE_LISTA/B.PRECIO_MAXIMO)-1)*100 FROM tabla_de_productos A
+INNER JOIN
+vw_envases_grandes B
+ON A.ENVASE = B.ENVASE;
+
+
