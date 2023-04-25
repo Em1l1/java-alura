@@ -1,0 +1,11 @@
+-- FORMATO INNODB
+CREATE TABLE df_table (ID INT, NOMBRE VARCHAR(100));
+
+-- Formato myisam
+ALTER TABLE df_table ENGINE = MYISAM;
+
+-- mecanismo de almacenamiento
+CREATE TABLE df_table1 (ID INT, NOMBRE VARCHAR(100)) ENGINE = MEMORY;
+
+
+SHOW ENGINES;
