@@ -30,7 +30,7 @@ CREATE TABLE `tabla_de_productos` (
   `ENVASE` varchar(20) DEFAULT NULL,
   `PRECIO_DE_LISTA` float NOT NULL,
   PRIMARY KEY (`CODIGO_DEL_PRODUCTO`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

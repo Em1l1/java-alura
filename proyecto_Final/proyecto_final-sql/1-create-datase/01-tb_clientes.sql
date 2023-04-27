@@ -1,3 +1,5 @@
+USE empresa;
+
 CREATE TABLE clientes (
   DNI VARCHAR(11) NOT NULL,
   NOMBRE VARCHAR(100) NULL,
